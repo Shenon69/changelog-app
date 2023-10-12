@@ -5,7 +5,7 @@ const router = Router();
 /**Product */
 router.get("/product",(req,res) => {
     res.status(200);
-    res.json({message: "Hello thunder"});
+    res.json({message: req.shhhh_secret});
 })
 router.get("/product/:id",() => {})
 router.put("/product/:id",() => {})
