@@ -1,4 +1,13 @@
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+
+export const comparePasswords = (password, hash) => {
+    return bcrypt.compareSync(password, hash);
+}
+
+export const hashPassword = (password) => {
+    return bcrypt.hash(password, 5);
+}
 
 export const createJWT = (user) => {
  const token = jwt.sign({
@@ -21,6 +30,7 @@ export const protect = (req,res,next) => {
     }
 
     const [,token] = bearer.split(" ");
+    console.log(token)
 
     if(!token){
         res.status(401)
