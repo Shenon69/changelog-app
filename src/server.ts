@@ -8,14 +8,14 @@ import { createNewUser, signin } from "./handlers/user";
 const app = express();
 
 app.use(cors());
-app.use(morgan("dev"));
+app.use(morgan("dev")); //to log the requrests in the console
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   console.log("Hello from express");
   res.status(200);
-  res.json({ message: "Hello frontend" });
+  res.json({ message: "Hello World" });
 });
 
 app.use('/api',protect,router)
